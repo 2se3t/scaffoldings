@@ -362,15 +362,32 @@ a.button:hover {
   display: none;
 }
 
-.mobile-nav .lang-mobile {
-  display: block;
-  font-size: 14.5px;
-  font-weight: 600;
-  color: #c0c4bc;
-  padding: 12px 0;
-  border-bottom: 1px solid #3d4734;
-  text-transform: uppercase;
-  letter-spacing: .05em;
+.nav-backdrop {
+  display: none;
+}
+
+@media(max-width:800px) {
+  .nav-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.6);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    z-index: 999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .25s ease;
+  }
+
+  body.menu-open .nav-backdrop {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  body.menu-open {
+    overflow: hidden;
+  }
 }
 
 .hero {
@@ -1369,6 +1386,8 @@ dialog textarea {
     border: 0;
     width: 36px;
     height: 42px;
+    position: relative;
+    z-index: 1001;
   }
 
   .menu-toggle>span {
@@ -1387,26 +1406,50 @@ dialog textarea {
     transform: translateY(-4px) rotate(-45deg);
   }
 
-  .mobile-nav:not([hidden]) {
-    display: block;
+  .mobile-nav {
+    display: flex;
+    flex-direction: column;
     position: fixed;
-    z-index: 99;
-    inset: 76px 0 auto;
-    background: #20251b;
-    padding: 25px 20px 30px;
-    box-shadow: 0 30px 50px #000a;
+    z-index: 1000;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: min(82vw, 340px);
+    height: 100%;
+    height: 100dvh;
+    background: #111410;
+    padding: 90px 28px 36px;
+    box-shadow: -15px 0 45px rgba(0,0,0,.65);
+    border-left: 1px solid #232a1e;
+    transform: translateX(100%);
+    transition: transform .28s cubic-bezier(.22, 1, .36, 1), visibility .28s;
+    visibility: hidden;
+    overflow-y: auto;
+  }
+
+  .mobile-nav:not([hidden]) {
+    transform: translateX(0);
+    visibility: visible;
   }
 
   .mobile-nav>a {
     font-family: var(--display);
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 500;
+    letter-spacing: .02em;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 14px 0;
-    border-bottom: 1px solid #3d4734;
+    padding: 16px 0;
+    border-bottom: 1px solid #1e241b;
     color: #edf2e8;
+    text-decoration: none;
+    transition: color .15s, padding-left .15s;
+  }
+
+  .mobile-nav>a:hover, .mobile-nav>a:active {
+    color: #ffffff;
+    padding-left: 4px;
   }
 
   .mobile-nav>a span {
@@ -1414,6 +1457,7 @@ dialog textarea {
     align-items: center;
     justify-content: center;
     font-size: 0;
+    color: var(--red);
   }
 
   .mobile-nav>a span::before {
@@ -1424,13 +1468,32 @@ dialog textarea {
     background-color: currentColor;
     -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 13L12 4M12 4H5M12 4V11' stroke='black' stroke-width='2.2' stroke-linecap='square' stroke-linejoin='miter' fill='none'/%3E%3C/svg%3E") no-repeat center / contain;
     mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 13L12 4M12 4H5M12 4V11' stroke='black' stroke-width='2.2' stroke-linecap='square' stroke-linejoin='miter' fill='none'/%3E%3C/svg%3E") no-repeat center / contain;
-    opacity: .7;
+    opacity: .85;
+  }
+
+  .mobile-nav .lang-mobile {
+    margin-top: 14px;
+    font-family: var(--font);
+    font-size: 13px;
+    font-weight: 600;
+    color: #9da395;
+    padding: 10px 14px;
+    border: 1px solid #2a3325;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    align-self: flex-start;
+    text-transform: uppercase;
+    letter-spacing: .06em;
   }
 
   .mobile-nav>p {
     font-size: 13px;
-    color: #9aa88a;
-    margin-top: 24px;
+    color: #6a7462;
+    margin-top: auto;
+    padding-top: 28px;
+    letter-spacing: .03em;
   }
 
   .hero {
@@ -1682,9 +1745,9 @@ dialog textarea {
     gap: 18px;
   }
 
-  .mobile-nav:not([hidden]) {
-    top: 76px;
-    padding-inline: 16px;
+  .mobile-nav {
+    width: min(86vw, 320px);
+    padding: 85px 22px 30px;
   }
 
   .hero {
