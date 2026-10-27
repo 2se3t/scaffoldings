@@ -174,14 +174,14 @@ a.button:hover {
   transition: background .15s,color .15s;
 }
 
-.button span,.text-link span,.price-table a span,.mobile-bar a span {
+.button span,.text-link span,.price-table a span {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   line-height: 1;
 }
 
-.button span::before,.text-link span::before,.price-table a span::before,.mobile-bar a span::before {
+.button span::before,.text-link span::before,.price-table a span::before {
   content: "";
   display: inline-block;
   width: 14px;
@@ -192,7 +192,7 @@ a.button:hover {
   vertical-align: middle;
 }
 
-.button span,.text-link span,.mobile-bar a span {
+.button span,.text-link span {
   font-size: 0;
 }
 
@@ -1440,18 +1440,10 @@ dialog textarea {
   .mobile-nav-header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding-bottom: 20px;
+    justify-content: flex-end;
+    padding-bottom: 16px;
     margin-bottom: 8px;
     border-bottom: 1px solid #1e241b;
-  }
-
-  .mobile-nav-header .eyebrow {
-    margin: 0;
-    font-size: 11px;
-    letter-spacing: .14em;
-    color: #8b9284;
-    font-weight: 700;
   }
 
   .mobile-nav-close {
