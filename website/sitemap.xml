@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Замените [ДОМЕН] перед публикацией. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url><loc>https://[ДОМЕН]/arenda-stroitelnyh-lesov/index.html</loc></url>
+<url><loc>https://[ДОМЕН]/arenda-trapov/index.html</loc></url>
+<url><loc>https://[ДОМЕН]/dostavka/index.html</loc></url>
+<url><loc>https://[ДОМЕН]/index.html</loc></url>
+<url><loc>https://[ДОМЕН]/kz/arenda-stroitelnyh-lesov/index.html</loc></url>
+<url><loc>https://[ДОМЕН]/kz/arenda-trapov/index.html</loc></url>
+<url><loc>https://[ДОМЕН]/kz/dostavka/index.html</loc></url>
+<url><loc>https://[ДОМЕН]/kz/index.html</loc></url>
+<url><loc>https://[ДОМЕН]/kz/privacy/index.html</loc></url>
+<url><loc>https://[ДОМЕН]/privacy/index.html</loc></url>
+</urlset>
