@@ -1,4 +1,0 @@
-User-agent: *
-Disallow: /
-# Черновик с пропусками. После заполнения данных замените Disallow на Allow.
-# Sitemap: https://[ДОМЕН]/sitemap.xml
