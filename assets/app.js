@@ -32,13 +32,13 @@ function message(){const d=getData();if(!d)return '';const parts=kk?['Сәлем
 function updateWhatsApp(){if(send&&config.whatsapp)send.href='https://wa.me/'+config.whatsapp.replace(/\D/g,'')+'?text='+encodeURIComponent(requestText.value);}
 form?.addEventListener('input',updateSummary);
 form?.addEventListener('change',updateSummary);
-form?.addEventListener('submit',event=>{event.preventDefault();if(!form.reportValidity())return;opener=document.activeElement;requestText.value=message();status.textContent='';updateWhatsApp();dialog.showModal();});
+form?.addEventListener('submit',event=>{event.preventDefault();if(!form.reportValidity())return;opener=document.activeElement;if(requestText)requestText.value=message();if(status)status.textContent='';updateWhatsApp();dialog?.showModal();});
 document.querySelectorAll('[data-product]').forEach(a=>a.addEventListener('click',()=>{if(!form)return;const radio=form.querySelector(`input[value="${a.dataset.product}"]`);if(radio){radio.checked=true;updateSummary();}}));
-document.querySelector('.dialog-close')?.addEventListener('click',()=>dialog.close());
+document.querySelector('.dialog-close')?.addEventListener('click',()=>dialog?.close());
 dialog?.addEventListener('click',event=>{if(event.target!==dialog)return;const rect=dialog.getBoundingClientRect();if(event.clientX<rect.left||event.clientX>rect.right||event.clientY<rect.top||event.clientY>rect.bottom)dialog.close();});
 dialog?.addEventListener('close',()=>opener?.focus());
 requestText?.addEventListener('input',updateWhatsApp);
-document.getElementById('copy-request')?.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(requestText.value);status.textContent=config.labels.copied;}catch{requestText.focus();requestText.select();try{status.textContent=document.execCommand('copy')?config.labels.copied:config.labels.copyError;}catch{status.textContent=config.labels.copyError;}}});
-document.getElementById('download-request')?.addEventListener('click',()=>{const blob=new Blob(['\ufeff'+requestText.value],{type:'text/plain;charset=utf-8'});const url=URL.createObjectURL(blob);const link=document.createElement('a');link.href=url;link.download='yugstroymontazh-request.txt';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);});
+document.getElementById('copy-request')?.addEventListener('click',async()=>{if(!requestText)return;try{await navigator.clipboard.writeText(requestText.value);if(status)status.textContent=config.labels.copied;}catch{requestText.focus();requestText.select();try{if(status)status.textContent=document.execCommand('copy')?config.labels.copied:config.labels.copyError;}catch{if(status)status.textContent=config.labels.copyError;}}});
+document.getElementById('download-request')?.addEventListener('click',()=>{if(!requestText)return;const blob=new Blob(['\ufeff'+requestText.value],{type:'text/plain;charset=utf-8'});const url=URL.createObjectURL(blob);const link=document.createElement('a');link.href=url;link.download='yugstroymontazh-request.txt';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);});
 updateSummary();
 })();

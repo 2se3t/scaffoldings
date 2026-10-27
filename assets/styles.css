@@ -1098,7 +1098,7 @@ a.button:hover {
   display: inline-block;
   font-size: 13px;
   color: #b8bfae;
-  margin-bottom: 45px;
+  margin-bottom: 0;
 }
 
 .service-hero h1 {
@@ -1200,7 +1200,7 @@ dialog::backdrop {
 .dialog-top {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   margin-bottom: 20px;
   gap: 20px;
 }
@@ -2211,7 +2211,7 @@ dialog textarea {
 
   .back {
     font-size: 12.5px;
-    margin-bottom: 35px;
+    margin-bottom: 0;
   }
 
   .service-hero h1 {
