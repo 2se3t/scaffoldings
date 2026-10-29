@@ -143,7 +143,14 @@
       <div class="dialog-top">
         <button type="button" class="dialog-close" aria-label="Закрыть">×</button>
       </div>
-      <h2 id="request-dialog-title">В разработке</h2>
+      <h2 id="request-dialog-title">ВАШ ЗАПРОС НА АРЕНДУ</h2>
+      <p>Проверьте параметры и скопируйте или скачайте запрос.</p>
+      <label class="sr-only" for="request-text">Текст запроса</label>
+      <textarea id="request-text" rows="9"></textarea>
+      <div class="dialog-actions">
+        <a class="button red" id="send-whatsapp" target="_blank" rel="noopener noreferrer" hidden>WhatsApp <span aria-hidden="true">↗</span></a><button class="button red" type="button" id="copy-request">Скопировать запрос <span aria-hidden="true">↗</span></button><button class="download" type="button" id="download-request">Скачать .txt ↓</button>
+      </div>
+      <p id="dialog-status" role="status"></p>
     </dialog>
   </body>
 </html>
