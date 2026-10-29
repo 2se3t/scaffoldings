@@ -864,8 +864,9 @@ a.button:hover {
 }
 
 .price-table a span {
-  font-size: 20px;
+  font-size: 0;
   color: var(--red);
+  line-height: 0;
 }
 
 .delivery-layout {
